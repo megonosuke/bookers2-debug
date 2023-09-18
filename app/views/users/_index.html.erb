@@ -11,6 +11,14 @@
       <tr>
         <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
         <td><%= user.name %></td>
+        <% if users != current_user %>
+            <td class="text-center align-middle"><% if current_user.followings?(users) %>
+            <%= link_to "フォロー外す", user_favorites_path(users), method: :delete %>
+        <% else %>
+            <%= link_to "フォローする", user_favorites_path(users), method: :post %>
+        <% end %>
+            </td>
+        <% end %>
         <td><%= link_to 'Show', user %></td>
       </tr>
     <% end %>
