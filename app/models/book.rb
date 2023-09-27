@@ -20,6 +20,6 @@ class Book < ApplicationRecord
     else
       Book.where('name LIKE ?', '%' + content + '%')
     end
-  end 
+  end
   
 end
